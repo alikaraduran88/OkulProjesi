@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PROJEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlinanDersler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LessonID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LessonName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Duyurular">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Enstitutu_Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icerik" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lessons">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LessonName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Teacher_SicilNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_Number" />
+          </Key>
+          <Property Name="Student_Number" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Birtdate" Type="date" Nullable="false" />
+          <Property Name="Student_TC_NO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TeacherSurname" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Teacher_SicilNo" Type="int" Nullable="false" />
+          <Property Name="Teacher_TC_NO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Yoklama">
+          <Key>
+            <PropertyRef Name="YoklamaID" />
+          </Key>
+          <Property Name="LessonID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Number" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Geldimi" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="YoklamaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PROJEModelStoreContainer">
+          <EntitySet Name="AlinanDersler" EntityType="Self.AlinanDersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Duyurular" EntityType="Self.Duyurular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lessons" EntityType="Self.Lessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yoklama" EntityType="Self.Yoklama" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PROJEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlinanDersler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LessonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LessonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Student_Number" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Duyurular">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Enstitutu_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Icerik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LessonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Teacher_SicilNo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_Number" />
+          </Key>
+          <Property Name="Student_Number" Type="Int32" Nullable="false" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Student_Birtdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Student_TC_NO" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TeacherSurname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Teacher_SicilNo" Type="Int32" Nullable="false" />
+          <Property Name="Teacher_TC_NO" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Yoklama">
+          <Key>
+            <PropertyRef Name="YoklamaID" />
+          </Key>
+          <Property Name="LessonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Student_Number" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Geldimi" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YoklamaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="PROJEEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlinanDerslers" EntityType="Self.AlinanDersler" />
+          <EntitySet Name="Duyurulars" EntityType="Self.Duyurular" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+          <EntitySet Name="Yoklamas" EntityType="Self.Yoklama" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PROJEModelStoreContainer" CdmEntityContainer="PROJEEntities1">
+          <EntitySetMapping Name="AlinanDerslers">
+            <EntityTypeMapping TypeName="PROJEModel.AlinanDersler">
+              <MappingFragment StoreEntitySet="AlinanDersler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="LessonName" ColumnName="LessonName" />
+                <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Duyurulars">
+            <EntityTypeMapping TypeName="PROJEModel.Duyurular">
+              <MappingFragment StoreEntitySet="Duyurular">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Enstitutu_Adi" ColumnName="Enstitutu_Adi" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="PROJEModel.Lesson">
+              <MappingFragment StoreEntitySet="Lessons">
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="LessonName" ColumnName="LessonName" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Teacher_SicilNo" ColumnName="Teacher_SicilNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="PROJEModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentSurname" ColumnName="StudentSurname" />
+                <ScalarProperty Name="Student_Birtdate" ColumnName="Student_Birtdate" />
+                <ScalarProperty Name="Student_TC_NO" ColumnName="Student_TC_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="PROJEModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="TeacherSurname" ColumnName="TeacherSurname" />
+                <ScalarProperty Name="Teacher_SicilNo" ColumnName="Teacher_SicilNo" />
+                <ScalarProperty Name="Teacher_TC_NO" ColumnName="Teacher_TC_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yoklamas">
+            <EntityTypeMapping TypeName="PROJEModel.Yoklama">
+              <MappingFragment StoreEntitySet="Yoklama">
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Geldimi" ColumnName="Geldimi" />
+                <ScalarProperty Name="YoklamaID" ColumnName="YoklamaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
